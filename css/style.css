@@ -1,3 +1,72 @@
 body {
     text-align: center;
 }
+
+#titleScreen {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(48, 155, 92);
+}
+
+#titleContent {
+    background-color: #a0d189;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    height: 60%;
+}
+
+.intro {
+    font-size: 30px;
+}
+
+.adventurer:hover {
+    height: 190px;
+    cursor: pointer;
+}
+#gameOver {
+    background-color: black;
+    z-index: 1;
+    overflow: auto;
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+#gameOver img {
+    margin: auto;
+}
+#gameOver button.continue {
+    position: absolute;
+    top: 30%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 10%;
+    height: 5%;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#gameOver button.exit {
+    position: absolute;
+    top: 30%;
+    left: 58.8%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 6%;
+    height: 5%;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
