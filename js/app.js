@@ -1,7 +1,7 @@
 const gameOverSign = document.querySelector("#gameOver");
 const title = document.querySelector("#titleScreen");
 
-let playerImage = 'images/char-cat-girl.png';
+let playerImage = "images/char-boy.png";
 
 
 var Enemy = function(x, y, speed) {
@@ -27,39 +27,23 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-let boyChar = false;
-let catChar = false;
-let princessChar = false;
+document.querySelector("#boy").addEventListener("click", boySelector);
+document.querySelector("#cat").addEventListener("click", catSelector);
+document.querySelector("#princess").addEventListener("click", princessSelector);
 
 function boySelector() {
-    boyChar = true;
-    playerChosen();
- }
+    playerImage = "images/char-boy.png";
+    hideTitle()
+}
 
- function catSelector() {
-     catChar = true;
-     playerChosen();
- }
+function catSelector() {
+    playerImage = "images/char-cat-girl.png";
+    hideTitle()
+}
 
 function princessSelector() {
-    princessChar = true;
-    playerChosen();
-}
-
-function playerChosen() {
-    
-if (boyChar === true) {
-    playerImage = document.querySelector("#boy");
-    hideTitle();
-}
-else if (catChar === true) {
-    playerImage = "images/char-cat-girl.png";
-    hideTitle();
-}
-else if (princessChar === true) {
-    playerImage = document.querySelector("#princess");
-    hideTitle();
-}
+    playerImage ="images/char-princess-girl.png";
+    hideTitle()
 }
 
 function hideTitle() {
