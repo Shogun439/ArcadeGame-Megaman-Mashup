@@ -9,9 +9,7 @@ I really enjoyed the process and learned so much, I hope you enjoy it as much as
 ## Usage:
 
 You choose between
-- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `Megaman`
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Protoman`
-- ![#424141](https://placehold.it/15/424141/000000?text=+) `Bass`
+- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `Megaman` ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Protoman` ![#424141](https://placehold.it/15/424141/000000?text=+) `Bass`
 
 and your goal is to try to get to the river. 
 Dont get caught by the enemies or else its game over.
