@@ -8,10 +8,34 @@ I really enjoyed the process and learned so much, I hope you enjoy it as much as
 
 ## Usage:
 
-You choose between three Avatars and your goal is to try to get to the river. 
+You choose between
+- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `Megaman`
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Protoman`
+- ![#424141](https://placehold.it/15/424141/000000?text=+) `Bass`
+
+and your goal is to try to get to the river. 
 Dont get caught by the enemies or else its game over.
 You navigate with the Arrow keys on your Keyboard.
 
-Click on this link to play.
+Click on this link to play. http://megaman-arcade.surge.sh/
 
-### Screenshot
+### Screenshot:
+![Alt text](https://github.com/Shogun439/ArcadeGame-Megaman-Mashup/blob/master/Megaman%20Screenshot.png)
+
+#### Image Sources:
+Sprites downloaded on http://supermariobroscrossover.com/media/
+Soundfiles found on https://www.sounds-resource.com/nes/megaman/sound/7955/
+
+##### Possible improvements:
+If I get to have time again, I will add new and more challenging levels and enemies. We shall see..
+
+###### Disclaimer:
+**FAIR USE**
+
+Copyright Disclaimer under section 107 of the Copyright Act 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
+
+Fair use is a use permitted by copyright statute that might otherwise be infringing. 
+
+Non-profit, educational or personal use tips the balance in favor of fair use. 
+
+
