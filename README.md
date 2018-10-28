@@ -1,6 +1,17 @@
-frontend-nanodegree-arcade-game
-===============================
+# Frogger & Megaman Mashup
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+This is a Udacity Frontend Nanodegree project.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Welcome to my Repo. Since my childhood I was and still am a die hard Megaman fan,
+I thought I would add some custom Sprites and Soundfiles to make this game feel more like Megaman.
+I really enjoyed the process and learned so much, I hope you enjoy it as much as I do!
+
+## Usage:
+
+You choose between three Avatars and your goal is to try to get to the river. 
+Dont get caught by the enemies or else its game over.
+You navigate with the Arrow keys on your Keyboard.
+
+Click on this link to play.
+
+### Screenshot
