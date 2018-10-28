@@ -1,16 +1,38 @@
+
 const gameOverSign = document.querySelector("#gameOver");
 const title = document.querySelector("#titleScreen");
+const win = document.querySelector("#winScreen");
 
-let playerImage = "images/char-boy.png";
+const lifeBar = document.querySelector(".lives");
+const heart1 = document.querySelector("#heart1");
+const heart2 = document.querySelector("#heart2");
+const heart3 = document.querySelector("#heart3");
+
+const death = document.querySelector("#death");
 
 
+// background Music
+const bgm = document.querySelector("#bgm");
+bgm.play();
+bgm.volume = 0.1;
+
+// the sound that plays everytime the character moves
+const moveSound = document.querySelector("#moveSound");
+
+moveSound.volume = 0.1;
+moveSound.play();
+
+// default player Sprite
+let playerImage = 'images/megaman.png';
+
+// properties of the Enemy
 var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y + 55;
     this.speed = speed;
     this.step = 101;
     this.boundary = this.step*5;
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = 'images/enemy.png';
 };
 
 Enemy.prototype.update = function(dt) {
@@ -26,33 +48,36 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+// the three different sprites
+document.querySelector("#megaman").addEventListener("click", megaSelector);
+document.querySelector("#protoman").addEventListener("click", protoSelector);
+document.querySelector("#bass").addEventListener("click", bassSelector);
 
-document.querySelector("#boy").addEventListener("click", boySelector);
-document.querySelector("#cat").addEventListener("click", catSelector);
-document.querySelector("#princess").addEventListener("click", princessSelector);
-
-function boySelector() {
-    playerImage = "images/char-boy.png";
-    hideTitle()
+function megaSelector() {
+    player.sprite = 'images/megaman.png';
+    hideTitle();
 }
 
-function catSelector() {
-    playerImage = "images/char-cat-girl.png";
-    hideTitle()
+function protoSelector() {
+    player.sprite = "images/protoman.png";
+    hideTitle();
 }
 
-function princessSelector() {
-    playerImage ="images/char-princess-girl.png";
-    hideTitle()
+function bassSelector() {
+    player.sprite ="images/bass.png";
+    hideTitle();
 }
-
+// by choosing a character on the title screen, the function gets invoked and the game starts
 function hideTitle() {
     title.style.display = "none";
-}
+    lifeBar.style.display = "block";
 
+}
+// Our heros properties
 class Hero {
     constructor () {
-        this.score = 0;
+        this.points = 0
+        this.life = 3;
         this.step = 101;
         this.jump = 83;
         this.startX = this.step*2;
@@ -63,11 +88,10 @@ class Hero {
         this.fail = false;
         this.sprite = playerImage;
     }
-
-
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    // the movement limitations and the map limitations
     handleInput(input) {
         switch(input) {
             case "left":
@@ -91,34 +115,54 @@ class Hero {
             break;
         }
     }
+    // collision properties
     update() {
         for (let enemy of allEnemies) {
             if ( this.y === enemy.y && (enemy.x + enemy.step > this.x +25 && enemy.x +25 < this.x + this.step)) {
-                this.score -= 1;
-                this.reset();
+                this.life -= 1;
+                this.damage();
             }
         }
+        // the penalties or rewards if catched by the enemy or success by reaching the sea
         if (this.y < 55) {
-            this.score += 1;
-            this.reset();
+            this.points += 1;
+            this.point();
         }
-        if (this.score === -3) {
+        if (this.life === 0) {
             this.fail = true;
         }
-        if (this.score === 3){
+        if (this.points === 3){
             this.victory = true;
         }
         if (this.fail === true) {
             gameFail();
         }
         if (this.victory === true) {
-            setModal();
+            winScreen();
         }
     }
-
-    reset() {
+    // location reset by reaching the sea
+    point() {
         this.x = this.startX;
         this.y = this.startY;
+    }
+    // location reset by losing a life, if no remaining lives left, the death sound plays and the GameOver screen emerges
+    damage() {
+
+        this.x = this.startX;
+        this.y = this.startY;
+
+        if (this.life === 2) {
+            lifeBar.removeChild(heart1);
+        }
+        if (this.life === 1) {
+            lifeBar.removeChild(heart2);
+        }
+        if (this.life === 0) {
+            death.play();
+            death.volume = 0.1;
+            lifeBar.removeChild(heart3);
+        }
     }
 }
 
@@ -126,21 +170,23 @@ function gameFail() {
     gameOverSign.style.display = "block";
 }
 
-function setModal () {
-    modal.style.display = "block";
+function winScreen () {
+    win.style.display = "block";
 }
-
+// player gets the same properties as our Hero Class
 const player = new Hero();
 
-const bug1 = new Enemy(-101, 0, 150);
-const bug2 = new Enemy(-301, 83, 300);
-const bug3 = new Enemy(0, 70, 190);
-const bug4 = new Enemy(0, 166, 30);
+// qualities like spawnlocation, rowlocation and speed are defined in the parentheses
+const bug1 = new Enemy(-101, 83, 150);
+const bug2 = new Enemy(-301, 166, 300);
+const bug3 = new Enemy(0, 166, 190);
+const bug4 = new Enemy(0, 0, 30);
+const bug5 = new Enemy(0, 0, 400);
 
 
-const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4);
+const allEnemies = [bug1, bug2, bug3, bug4, bug5];
 
+// by using the arrow keys on your keyboard the handleInput function gets invoked, the moveSound too.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -148,6 +194,7 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
+    moveSound.currentTime = 0;
+    moveSound.play();
     player.handleInput(allowedKeys[e.keyCode]);
 });

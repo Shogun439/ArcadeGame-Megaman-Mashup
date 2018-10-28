@@ -2,23 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
+    <title>Frogger - Megaman Mashup</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="titleScreen">
+        <img class="title" src="images/titleScreen.jpg">
         <div id="titleContent">
-            <p class="intro">Choose your Adventurer!</p>
-                <img id="boy" class="adventurer" src="images/char-boy.png">
-                <img id="cat" class="adventurer" src="images/char-cat-girl.png">
-                <img id="princess" class="adventurer" src="images/char-princess-girl.png">
+                <img id="megaman" class="adventurer" src='images/megaman.png' alt="megaman image">
+                <img id="protoman" class="adventurer" src="images/protoman.png" alt="protoman image">
+                <img id="bass" class="adventurer" src="images/bass.png" alt="bass image">
         </div>
     </div>
+    
+    <div class="lives">
+        <img id="heart1" class="heart" src="images/megaLife.png" alt="lifebar">
+        <img id="heart2" class="heart" src="images/megaLife.png"alt="lifebar">
+        <img id="heart3" class="heart" src="images/megaLife.png"alt="lifebar">
+    </div>
+    <div id="winScreen">
+        <img src="images/winScreen.jpg" alt="winScreen">
+        <button class="continue" onclick="window.location.reload()">CONTINUE</button>
+        <button class="exit" onclick="window.close()">EXIT</button>
+
+    </div>
     <div id="gameOver">
-        <img src="https://i2.wp.com/lasttokengaming.com/wp-content/uploads/2016/01/metal-gear-solid-game-over-screen.png?resize=585%2C300">
+        <img src="https://i2.wp.com/lasttokengaming.com/wp-content/uploads/2016/01/metal-gear-solid-game-over-screen.png?resize=585%2C300" alt="gameover screen">
             <button class="continue" onclick="window.location.reload()"></button>
             <button class="exit" onclick="window.close()"></button>
     </div>
+    <audio id="death" src="sound/deathEffect.mp3"></audio>
+    <audio id="moveSound" src="sound/moveSound.wav"></audio>
+    <audio id="bgm" src="sound/backgroundMusic.mp3"></audio>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
