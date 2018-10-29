@@ -25,7 +25,8 @@ Sprites downloaded on http://supermariobroscrossover.com/media/
 Soundfiles found on https://www.sounds-resource.com/nes/megaman/sound/7955/
 
 ##### Possible improvements:
-If I get to have time again, I will add new and more challenging levels and enemies. We shall see..
+If I get to have time again, I will add new and more challenging levels and enemies. 
+Sometimes the background music starts with a delay, I have to find out what the cause is. A possible cause would be performance issues.
 
 ###### Disclaimer:
 **FAIR USE**
